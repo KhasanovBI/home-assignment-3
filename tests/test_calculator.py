@@ -22,7 +22,7 @@ class CalculatorTestCase(unittest.TestCase):
         self.assertAlmostEqual(self.calculator.add(3.2, 5), self.calculator.add(5, 3.2))
 
     def test_add_of_floats(self):
-        self.assertAlmostEqual(self.calculator.add(0.1, 0.2), 0.3)
+        self.assertEqual(self.calculator.add(0.1, 0.2), 0.3)
 
     def test_commutativity_of_add_of_floats(self):
         self.assertAlmostEqual(self.calculator.add(1.2, 5.23), self.calculator.add(5.23, 1.2))
@@ -90,7 +90,7 @@ class CalculatorTestCase(unittest.TestCase):
         self.assertAlmostEqual(self.calculator.sin(0), 0)
 
     def test_sin_of_pi_div_2(self):
-        self.assertAlmostEqual(self.calculator.sin(math.pi / 2), 1)
+        self.assertEqual(self.calculator.sin(math.pi / 2), 1)
 
     def test_sin_range(self):
         result = self.calculator.sin(5.4)
