@@ -5,7 +5,7 @@ from decimal import *
 def round_result(function):
     def function_wrapper(*args):
         with localcontext(Context(10)):
-            return round(function(*map(lambda x: Decimal(str(x)), args)), 10)
+            return float(function(*map(lambda x: Decimal(str(x)), args)))
 
     return function_wrapper
 
@@ -35,6 +35,5 @@ class Calculator:
         return a / b
 
     @staticmethod
-    @round_result
     def sin(x):
-        return math.sin(x)
+        return round(math.sin(x), 10)
